@@ -1,0 +1,20 @@
+{
+  "name": "koine-lexer",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "browserify": "~3.32.0",
+    "broccoli": "~0.2.4",
+    "watchify": "~0.6.1"
+  },
+  "devDependencies": {
+    "mocha": "~1.17.1"
+  },
+  "scripts": {
+    "test": "node_modules/mocha/bin/mocha **/*_tests.js --reporter spec",
+    "browserify": "watchify demo/app.js --outfile demo/index.js"
+  },
+  "author": "Aaron Shafovaloff <aaronshaf@gmail.com>",
+  "license": "MIT"
+}
