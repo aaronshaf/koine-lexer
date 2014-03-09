@@ -1,0 +1,9 @@
+{
+  "name": "koine-lexer-showcase",
+  "version": "0.0.1",
+  "author": "Aaron Shafovaloff <aaronshaf@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "koine-lexer": "~0.1.0"
+  }
+}
