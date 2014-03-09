@@ -1,3 +1,5 @@
+## Installation
+
 ```
 npm install koine-lexer
 ```
@@ -5,7 +7,7 @@ npm install koine-lexer
 ## Syllabification
 
 ```
-var syllabify = require('./syllabify');
+var syllabify = require('koine-lexer/lib/syllabify');
 var syllables = syllabify('ἀκηκόαμεν');
 ```
 
