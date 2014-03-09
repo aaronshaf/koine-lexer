@@ -3,7 +3,7 @@ var utils = require('./utils');
 var unorm = require('unorm');
 var _ = require('lodash');
 
-function breakIntoSyllables(word) {
+function syllabify(word) {
   var syllables = [];
   var currentSyllable = '';
   var charactersRemaining = unorm.nfc(word);
@@ -97,8 +97,8 @@ function extractConsonantClustersPronouncedTogether(text) {
   return _.unique(consonantClusters);
 }
 
-exports.breakIntoSyllables = breakIntoSyllables;
-exports.extractConsonantClustersPronouncedTogether = extractConsonantClustersPronouncedTogether;
+module.exports = syllabify;
+module.exports.extractConsonantClustersPronouncedTogether = extractConsonantClustersPronouncedTogether;
 },{"./utils":2,"lodash":3,"unorm":4}],2:[function(require,module,exports){
 var unorm = require('unorm');
 
@@ -7462,21 +7462,22 @@ UChar.udata={
 }());
 
 },{}],5:[function(require,module,exports){
-var syllabification = require('../lib/syllabification');
+var syllabify = require('../lib/syllabify');
 var _ = require('lodash');
 var unorm = require('unorm');
 
-window.unorm = unorm;
-console.log(unorm);
-
 window.ApplicationController = function($scope) {
-  $scope.query = 'ὁμολογέω';
-  $scope.consonantClusterInput = 'ἀμὴν λέγω ὑμῖν, ὁ μὴ εἰσερχόμενος διὰ τῆς θύρας εἰς τὴν αὐλὴν τῶν προβάτων';
-  $scope.extractedConsonantClusters = [];
-
-  $scope.$watch('consonantClusterInput', function(newValue, oldValue) {
-    var tmp = $scope.extractedConsonantClusters.concat(syllabification.extractConsonantClustersPronouncedTogether($scope.consonantClusterInput.trim()));
-    $scope.extractedConsonantClusters = _.unique(tmp).sort();
+  $scope.query = 'ἀπαγγέλλομεν';
+  $scope.$watch('query', function(newValue, oldValue) {
+  	$scope.syllables = syllabify(newValue);
   });
+
+  // $scope.consonantClusterInput = 'ἀμὴν λέγω ὑμῖν, ὁ μὴ εἰσερχόμενος διὰ τῆς θύρας εἰς τὴν αὐλὴν τῶν προβάτων';
+  // $scope.extractedConsonantClusters = [];
+
+  // $scope.$watch('consonantClusterInput', function(newValue, oldValue) {
+  //   var tmp = $scope.extractedConsonantClusters.concat(syllabification.extractConsonantClustersPronouncedTogether($scope.consonantClusterInput.trim()));
+  //   $scope.extractedConsonantClusters = _.unique(tmp).sort();
+  // });
 }
-},{"../lib/syllabification":1,"lodash":3,"unorm":4}]},{},[5])
+},{"../lib/syllabify":1,"lodash":3,"unorm":4}]},{},[5])
