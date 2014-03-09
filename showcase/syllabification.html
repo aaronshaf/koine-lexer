@@ -18,11 +18,33 @@
   <a href="#content" class="sr-only">Skip to main content</a>
   <div class="container" id="content" ng-controller="ApplicationController">
     <h1>Syllabification</h1>
+    <input type="text" autofocus ng-model="query" class="form-control" placeholder="Greek word to syllabify" list="examples">
+    
+    <datalist id="examples">
+      <option value="ἀκηκόαμεν">
+      <option value="μαρτυροῦμεν">
+      <option value="ἑωράκαμεν">
+      <option value="ἐθεασάμεθα">
+      <option value="ἔμπροσθεν">
+      <option value="ἀρχῆς">
+      <option value="Χριστός">
+      <option value="γραφή">
+      <option value="ἔθνεσιν">
+      <option value="ἀπαγγέλλομεν">
+      <option value="ἀντιχριστός">
+      <option value="ἐκβάλλω">
+    </datalist>
 
-    <h2>Extract consonant clusters pronounced together</h2>
+    <div style="margin-top: 12px;font-size: 1.3em;">
+      <span ng-repeat="syllable in syllables track by $index" style="margin-right: 12px;">
+        {{syllable}}
+      </span>
+    </div>
+
+    <!-- h2>Extract consonant clusters pronounced together</h2>
     <textarea ng-model="consonantClusterInput" class="form-control"></textarea>
 
-    <pre>{{extractedConsonantClusters | json}}</pre>
+    <pre>{{extractedConsonantClusters | json}}</pre -->
   </div>
 </body>
 </html>
