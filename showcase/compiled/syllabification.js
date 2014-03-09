@@ -1,6 +1,112 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var utils = require('./utils');
+var unorm = require('unorm');
 var _ = require('lodash');
+
+function breakIntoSyllables(word) {
+  var syllables = [];
+  var currentSyllable = '';
+  var charactersRemaining = unorm.nfc(word);
+  var cluster;
+
+  function advanceSyllable() {
+    if(currentSyllable.length) {
+      syllables.push(currentSyllable);  
+      currentSyllable = '';
+    }
+  };
+
+  function shiftCharacter() {
+    currentSyllable += charactersRemaining[0];
+    charactersRemaining = charactersRemaining.substr(1);
+  }
+
+  // var wordWithoutAccents = utils.withoutAccents(word);
+  
+  while(charactersRemaining.length) {
+    if(utils.isSingleConsonant(word)) {
+      shiftCharacter();
+      continue;
+    }
+
+    if(cluster = utils.beginsWithConsonantClusterPronouncedTogether(charactersRemaining)) {
+      if(currentSyllable.length) {
+        advanceSyllable();
+      }
+      currentSyllable += cluster;
+      charactersRemaining = charactersRemaining.substr(cluster.length);
+      continue;
+    }
+
+    if(utils.beginsWithSingleConsonantFollowedByVowel(charactersRemaining)) {
+      // console.log('beginsWithSingleConsonantFollowedByVowel',charactersRemaining);
+      if(currentSyllable.length) {
+        advanceSyllable();
+      }
+      shiftCharacter();
+      continue;
+    }
+
+    if(utils.beginsWithDoubleConsonant(charactersRemaining)) {
+      // console.log('beginsWithDoubleConsonant',charactersRemaining);
+      shiftCharacter();
+      advanceSyllable();
+      continue;
+    }
+
+    if(utils.beginsWithConsonant(charactersRemaining)) {
+      // console.log('beginsWithConsonant',charactersRemaining);
+      shiftCharacter();
+      continue;
+    }
+
+    if(utils.beginsWithDiphthong(charactersRemaining)) {
+      // console.log('beginsWithDiphthong',charactersRemaining);
+      currentSyllable += charactersRemaining[0] + charactersRemaining[1];
+      charactersRemaining = charactersRemaining.substr(2);
+      continue;
+    }
+
+    if(utils.beginsWithVowelFollowedByVowel(charactersRemaining)) {
+      // console.log('beginsWithVowelFollowedByVowel',charactersRemaining)
+      shiftCharacter();
+      advanceSyllable();
+      continue;
+    }
+
+    shiftCharacter();
+  }
+  advanceSyllable();
+  return syllables;
+}
+
+function extractConsonantClustersPronouncedTogether(text) {
+  var consonantClusters = [];
+  var words = utils.removeNumbers(utils.removePunctuation(text.toLowerCase())).split(' ');
+  // console.log(words);
+  words.forEach(function(word) {
+   var characters = word.split('');
+   var consonantCluster = [];
+   while(characters.length && utils.isConsonant(characters[0])) {
+     consonantCluster.push(characters.shift());
+   }
+   if(consonantCluster.length > 1) {
+    consonantClusters.push(consonantCluster.join('')); 
+   }
+  });
+  return _.unique(consonantClusters);
+}
+
+exports.breakIntoSyllables = breakIntoSyllables;
+exports.extractConsonantClustersPronouncedTogether = extractConsonantClustersPronouncedTogether;
+},{"./utils":2,"lodash":3,"unorm":4}],2:[function(require,module,exports){
+var unorm = require('unorm');
+
+const consonants = ["β", "γ", "δ", "ζ", "θ", "κ", "λ", "μ", "ν", "ξ", "π", "ς", "σ", "τ", "φ", "χ", "ψ"];
+const longVowels = ["η", "ω"];
+const shortVowels = ["α", "ε", "ι", "ο", "υ"];
+const diphthongs = ["αι", "αυ", "ει", "ευ", "ηυ", "οι", "ου", "υι"];
+const vowels = longVowels.concat(shortVowels);
 
 const consonantClustersPronouncedTogether = [
   "βλ",
@@ -11,6 +117,7 @@ const consonantClustersPronouncedTogether = [
   "δρ",
   "θλ",
   "θρ",
+  "θν",
   "κλ",
   "κρ",
   "κτ",
@@ -27,6 +134,7 @@ const consonantClustersPronouncedTogether = [
   "στ",
   "στρ",
   "σφ",
+  "σθ",
   "σχ",
   "τρ",
   "φθ",
@@ -35,66 +143,73 @@ const consonantClustersPronouncedTogether = [
   "χρ"
 ];
 
-function isDoubleConsonant(twoCharacters) {
-
+function isVowel(character) {
+	return vowels.indexOf(unorm.nfd(character)[0]) !== -1;
 }
 
-function breakIntoSyllables(word) {
-  var syllables = [];
-  var currentSyllable = '';
-  word = unorm.nfc(word);
+function beginsWithVowel(characters) {
+	return isVowel(characters[0]);
+}
 
+function isConsonant(character) {
+	return !exports.isVowel(character);
+}
 
+function isDiphthong(characters) {
+	return diphthongs.indexOf(characters) !== -1;
+}
 
-  // var wordWithoutAccents = utils.withoutAccents(word);
-  
-  while(word.length) {
-    if(utils.isConsonant(word[0])) {
+function beginsWithConsonant(characters) {
+  return isConsonant(characters[0]); 
+}
 
+function beginsWithDiphthong(characters) {
+  return diphthongs.indexOf(withoutAccents(characters).substr(0,2)) !== -1;
+}
+
+function beginsWithConsonantClusterPronouncedTogether(characters) {
+  var charactersLowerCased = characters.toLowerCase();
+  for(var x = 0;x < consonantClustersPronouncedTogether.length;x++) {
+    if(charactersLowerCased.indexOf(consonantClustersPronouncedTogether[x]) === 0) {
+      return characters.substr(0,consonantClustersPronouncedTogether[x].length);
     }
-
-    // consonantClustersPronouncedTogether
-
-
-
   }
+  return null;
 }
 
-function extractConsonantClustersPronouncedTogether(text) {
-  var consonantClusters = [];
-  var words = utils.removeNumbers(utils.removePunctuation(text.toLowerCase())).split(' ');
-  console.log(words);
-  words.forEach(function(word) {
-   var characters = word.split('');
-   var consonantCluster = [];
-   while(characters.length && utils.isConsonant(characters[0])) {
-     consonantCluster.push(characters.shift());
-   }
-   if(consonantCluster.length > 1) {
-    consonantClusters.push(consonantCluster.join('')); 
-   }
-  });
-  return _.unique(consonantClusters);
+function isSingleConsonant(characters) {
+  return characters.length === 1 && isConsonant(characters[0]);
 }
 
-exports.breakIntoSyllables = breakIntoSyllables;
-exports.extractConsonantClustersPronouncedTogether = extractConsonantClustersPronouncedTogether;
-},{"./utils":2,"lodash":3}],2:[function(require,module,exports){
-var unorm = require('unorm');
+function beginsWithSingleConsonantFollowedByVowel(characters) {
+  return isConsonant(characters[0]) && isVowel(characters[1]);
+}
 
-const consonants = ["β", "γ", "δ", "ζ", "θ", "κ", "λ", "μ", "ν", "ξ", "π", "ς", "σ", "τ", "φ", "χ", "ψ"];
-const longVowels = ["η", "ω"];
-const shortVowels = ["α", "ε", "ι", "ο", "υ"];
-const diphthongs = ["αι", "αυ", "ει", "ευ", "ηυ", "οι", "ου", "υι"];
-const vowels = longVowels.concat(shortVowels);
+function beginsWithVowelFollowedByVowel(characters) {
+  return isVowel(characters[0]) && isVowel(characters[1]);
+}
 
-function isVowel(character) { return vowels.indexOf(unorm.nfd(character)[0]) !== -1; }
-function beginsWithVowel(characters) { return isVowel(characters[0]); }
-function isConsonant(character) { return !exports.isVowel(character); }
-function isDiphthong(characters) { return diphthongs.indexOf(characters) !== -1 }
-function withoutAccent(character) { return unorm.nfd(character)[0]; }
-function withoutAccents(characters) { return characters.split('').map(withoutAccent).join(''); }
+function beginsWithDoubleConsonant(characters) {
+  return characters.length > 1
+      && isConsonant(characters[0])
+      && isConsonant(characters[1]);
+}
 
+function withoutAccent(character) {
+	return unorm.nfd(character)[0];
+}
+
+function withoutAccents(characters) {
+	return characters.split('').map(withoutAccent).join('');
+}
+
+function removePunctuation(characters) {
+	return characters.replace(/[,.·;]/g,'');
+}
+
+function removeNumbers(characters) {
+	return clean(characters).replace(/[1234567890]/g,'');
+}
 
 function lengthen(vowel) {
 
@@ -102,10 +217,6 @@ function lengthen(vowel) {
 
 function connectAndLengthen(part1,part2) {
 
-}
-
-function removePunctuation(characters) {
-  return characters.replace(/[,.·;]/g,'');
 }
 
 function clean(characters) {
@@ -116,16 +227,20 @@ function clean(characters) {
     .replace(/ +(?= )/g,'');
 }
 
-function removeNumbers(characters) {
-  return clean(characters)
-    .replace(/[1234567890]/g,'');
-}
-
 exports.isVowel = isVowel;
 exports.isConsonant = isConsonant;
 exports.withoutAccents = withoutAccents;
 exports.removeNumbers = removeNumbers;
 exports.removePunctuation = removePunctuation;
+exports.isSingleConsonant = isSingleConsonant;
+exports.beginsWithVowel = beginsWithVowel;
+exports.beginsWithDiphthong = beginsWithDiphthong;
+exports.beginsWithConsonant = beginsWithConsonant;
+exports.beginsWithVowelFollowedByVowel = beginsWithVowelFollowedByVowel;
+exports.beginsWithSingleConsonantFollowedByVowel = beginsWithSingleConsonantFollowedByVowel;
+exports.beginsWithDoubleConsonant = beginsWithDoubleConsonant;
+exports.beginsWithConsonantClusterPronouncedTogether = beginsWithConsonantClusterPronouncedTogether;
+
 },{"unorm":4}],3:[function(require,module,exports){
 (function (global){
 /**
