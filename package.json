@@ -1,7 +1,7 @@
 {
   "name": "koine-lexer",
   "version": "0.0.1",
-  "description": "Lexical analysis of Koine Greek",
+  "description": "Lexical analysis of New Testament Koine Greek",
   "main": "index.js",
   "dependencies": {
     "lodash": "~2.4.1",
