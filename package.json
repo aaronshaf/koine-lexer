@@ -14,7 +14,7 @@
     "watchify": "~0.6.1"
   },
   "scripts": {
-    "test": "node_modules/mocha/bin/mocha **/*_tests.js --reporter spec",
+    "test": "node_modules/mocha/bin/mocha lib/*_tests.js --reporter spec",
     "browserify": "watchify demo/app.js --outfile demo/index.js"
   },
   "author": "Aaron Shafovaloff <aaronshaf@gmail.com>",
