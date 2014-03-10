@@ -28,3 +28,12 @@ principle parts
   6 aorist passive indicative
 
 perfective reduplication
+
+oxytone
+  "words born with an acute on the ultima"
+
+paroxytone
+  "words born with an acute on the penultima"
+
+proparoxytone
+  "words born with an acute on the antepenultima"

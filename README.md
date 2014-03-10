@@ -14,3 +14,29 @@ var syllables = syllabify('ἀκηκόαμεν');
 ```json
 ["ἀ","κη","κό","α","μεν"]
 ```
+
+## Accentuation
+
+```javascript
+var accentuation = require('koine-lexer/lib/accentuation');
+var accentedVerb = accentuation.accentuateVerb('ἀκηκοαμεν');
+```
+
+```json
+"ἀκηκόαμεν"
+```
+
+## Testing
+
+### Run all tests
+
+```
+npm test
+```
+
+### Run some tests
+
+```
+npm install mocha -g
+mocha lib/utils/*_tests.js
+```
