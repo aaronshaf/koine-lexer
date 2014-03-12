@@ -20,14 +20,14 @@
   <nav class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="index.html">Koine Lexer</a>
+        <a class="navbar-brand" href="index.html">Paradigms</a>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-8">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="syllabification.html">Syllabification</a></li>
+          <li><a href="syllabification.html">Syllabification</a></li>
           <li><a href="accentuation.html">Accentuation</a></li>
-          <li><a href="paradigms.html">Paradigms</a></li>
+          <li class="active"><a href="paradigms.html">Paradigms</a></li>
         </ul>
       </div>
     </div>
@@ -35,34 +35,52 @@
 
   <a href="#content" class="sr-only">Skip to main content</a>
   <div class="container" id="content" ng-controller="ApplicationController">
-    <h1>Syllabification</h1>
-    <input type="text" autofocus ng-model="query" class="form-control" placeholder="Greek word to syllabify" list="examples">
+    <h1>παράδειγμα</h1>
 
-    <datalist id="examples">
-      <option value="ἀκηκόαμεν">
-      <option value="μαρτυροῦμεν">
-      <option value="ἑωράκαμεν">
-      <option value="ἐθεασάμεθα">
-      <option value="ἔμπροσθεν">
-      <option value="ἀρχῆς">
-      <option value="Χριστός">
-      <option value="γραφή">
-      <option value="ἔθνεσιν">
-      <option value="ἀπαγγέλλομεν">
-      <option value="ἀντιχριστός">
-      <option value="ἐκβάλλω">
-    </datalist>
+    <h2>πτῶσις</h2>
+    <ul>
+      <li>ὀνομαστικός</li>
+      <li>δοτικός</li>
+      <li>γενικός</li>
+      <li>αἰτιατικός</li>
+      <li>προσαγορευτικός</li>
+    </ul>
 
-    <div style="margin-top: 12px;font-size: 1.3em;">
-      <span ng-repeat="syllable in syllables track by $index" style="margin-right: 12px;">
-        {{syllable}}
-      </span>
-    </div>
+    <h2>γένος</h2>
+    <ul>
+      <li>ἀρσενικός</li>
+      <li>θηλυκός</li>
+    </ul>
 
-    <!-- h2>Extract consonant clusters pronounced together</h2>
-    <textarea ng-model="consonantClusterInput" class="form-control"></textarea>
+    <h2>ἀριθμός</h2>
+    <ul>
+      <li>ἑνικός</li>
+      <li>πληθηντικός</li>
+    </ul>
 
-    <pre>{{extractedConsonantClusters | json}}</pre -->
+    <h2>χρόνος</h2>
+    <ul>
+      <li>ἐνοστώς</li>
+      <li>παρατατικός</li>
+      <li>συντελικός</li>
+      <li>μέλλων</li>
+      <li>παρακείμενος</li>
+      <li>ὑπερσθντελικός</li>
+    </ul>
+
+    <h2>ἔγκλισις</h2>
+    <ul>
+      <li>ὁριστική</li>
+      <li>ὑποτακτικός</li>
+      <li></li>
+    </ul>
+
+    <h2>Misc</h2>
+    <ul>
+      <li>ἀντωνυμία</li>
+      <li>ἄρθρον</li>
+    </ul>
+
   </div>
 </body>
 </html>

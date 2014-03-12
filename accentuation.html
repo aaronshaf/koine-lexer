@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
-  <script src="compiled/syllabification.js"></script>
+  <script src="compiled/accentuation.js"></script>
   <meta charset="utf-8">
   <title>Koine Lexer</title>
 </head>
@@ -25,8 +25,8 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-8">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="syllabification.html">Syllabification</a></li>
-          <li><a href="accentuation.html">Accentuation</a></li>
+          <li><a href="syllabification.html">Syllabification</a></li>
+          <li class="active"><a href="accentuation.html">Accentuation</a></li>
           <li><a href="paradigms.html">Paradigms</a></li>
         </ul>
       </div>
@@ -35,7 +35,7 @@
 
   <a href="#content" class="sr-only">Skip to main content</a>
   <div class="container" id="content" ng-controller="ApplicationController">
-    <h1>Syllabification</h1>
+    <h1>Accentuation</h1>
     <input type="text" autofocus ng-model="query" class="form-control" placeholder="Greek word to syllabify" list="examples">
 
     <datalist id="examples">
