@@ -1,5 +1,4 @@
-
-![Travis CI status](https://travis-ci.org/aaronshaf/koine-lexer.png "Travis CI status")
+[![Build Status](https://travis-ci.org/aaronshaf/koine-lexer.png?branch=master)](https://travis-ci.org/aaronshaf/koine-lexer)
 ## Installation
 
 ```
