@@ -1,3 +1,5 @@
+
+![Travis CI status](https://travis-ci.org/aaronshaf/koine-lexer.png "Travis CI status")
 ## Installation
 
 ```
