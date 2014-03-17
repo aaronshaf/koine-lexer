@@ -28,6 +28,17 @@ var accentedVerb = accentuation.accentuateVerb('ἀκηκοαμεν');
 "ἀκηκόαμεν"
 ```
 
+## Amalgamation
+
+```javascript
+var amalgamate = require('koine-lexer/lib/amalgamate');
+var amalgamatedVerb = amalgamate('πέμπσω');
+```
+
+```json
+"πέμψω"
+```
+
 ## Testing
 
 ### Run all tests
