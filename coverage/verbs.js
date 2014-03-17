@@ -65,7 +65,7 @@ eachChapterFile(function(file) {
       if(presentActiveIndicativesResult[number][person] === normalizedWord) {
         coverage["presentActiveIndicatives"]["matches"]++;
       } else {
-        fs.appendFileSync(__dirname + "/misses/presentActiveIndicatives.txt", word[1] + " sblgnt: " + normalizedWord + ", koine-lexer:" + presentActiveIndicativesResult[number][person] +"\n");
+        fs.appendFileSync(__dirname + "/misses/presentActiveIndicatives.txt", word[1] + " lemma: " + principleParts["1"] + ", sblgnt: " + normalizedWord + ", koine-lexer:" + presentActiveIndicativesResult[number][person] +"\n");
       }
     } else if(word[1].substr(1,3) === "FAI") {
     coverage["futureActiveIndicatives"]["total"]++;
@@ -73,7 +73,7 @@ eachChapterFile(function(file) {
       if(futureActiveIndicativesResult[number][person] === normalizedWord) {
         coverage["futureActiveIndicatives"]["matches"]++;
       } else {
-        fs.appendFileSync(__dirname + "/misses/futureActiveIndicatives.txt", word[1] + " sblgnt: " + normalizedWord + ", koine-lexer:" + futureActiveIndicativesResult[number][person] +"\n");
+        fs.appendFileSync(__dirname + "/misses/futureActiveIndicatives.txt", word[1] + " lemma: " + principleParts["1"] + ", sblgnt: " + normalizedWord + ", koine-lexer:" + futureActiveIndicativesResult[number][person] +"\n");
       }
     } else if(word[1].substr(1,3) === "IAI") {
     coverage["imperfectActiveIndicatives"]["total"]++;
@@ -81,7 +81,7 @@ eachChapterFile(function(file) {
       if(imperfectActiveIndicativesResult[number][person] === normalizedWord) {
         coverage["imperfectActiveIndicatives"]["matches"]++;
       } else {
-        fs.appendFileSync(__dirname + "/misses/imperfectActiveIndicatives.txt", word[1] + " sblgnt: " + normalizedWord + ", koine-lexer:" + imperfectActiveIndicativesResult[number][person] +"\n");
+        fs.appendFileSync(__dirname + "/misses/imperfectActiveIndicatives.txt", word[1] + " lemma: " + principleParts["1"] + ", sblgnt: " + normalizedWord + ", koine-lexer:" + imperfectActiveIndicativesResult[number][person] +"\n");
       }
     }
   });
