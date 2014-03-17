@@ -5,7 +5,10 @@
   "main": "index.js",
   "dependencies": {
     "lodash": "~2.4.1",
-    "unorm": "~1.3.2"
+    "unorm": "~1.3.2",
+    "glob": "~3.2.9",
+    "aaronshaf-bible-data": "~0.1.0",
+    "progress": "~1.1.4"
   },
   "devDependencies": {
     "mocha": "~1.17.1",
@@ -15,6 +18,7 @@
   },
   "scripts": {
     "test": "node_modules/mocha/bin/mocha lib/*_tests.js --reporter spec",
+    "coverage": "node coverage/*.js",
     "browserify": "watchify demo/app.js --outfile demo/index.js"
   },
   "author": "Aaron Shafovaloff <aaronshaf@gmail.com>",
