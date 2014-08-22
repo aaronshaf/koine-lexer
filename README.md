@@ -55,4 +55,4 @@ mocha lib/utils/*_tests.js
 
 ## See also
 
-* [https://github.com/morphgnt/morphological-lexicon](morphgnt/morphological-lexicon)
+* [morphgnt/morphological-lexicon](https://github.com/morphgnt/morphological-lexicon)
