@@ -1,6 +1,6 @@
 {
   "name": "koine-lexer",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "Lexical analysis of New Testament Koine Greek",
   "main": "index.js",
   "dependencies": {
