@@ -4,16 +4,10 @@
   "description": "Lexical analysis of New Testament Koine Greek",
   "main": "index.js",
   "dependencies": {
-    "lodash": "~2.4.1",
-    "unorm": "~1.3.3",
-    "glob": "~3.2.9",
-    "progress": "~1.1.4"
-  },
-  "devDependencies": {
-    "mocha": "~1.18.0",
-    "browserify": "~3.32.1",
-    "broccoli": "~0.2.4",
-    "watchify": "~0.6.1"
+    "glob": "~7.1.4",
+    "lodash": "~4.17.11",
+    "progress": "~2.0.3",
+    "unorm": "~1.5.0"
   },
   "scripts": {
     "test": "node_modules/mocha/bin/mocha lib/*_tests.js --reporter spec",
@@ -29,5 +23,9 @@
   "bugs": {
     "url": "https://github.com/aaronshaf/koine-lexer/issues"
   },
-  "homepage": "https://github.com/aaronshaf/koine-lexer"
+  "homepage": "https://github.com/aaronshaf/koine-lexer",
+  "devDependencies": {
+    "aaronshaf-bible-data": "^2.2.1",
+    "mkdirp": "^0.5.1"
+  }
 }
