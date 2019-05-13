@@ -10,7 +10,7 @@
     "unorm": "~1.5.0"
   },
   "scripts": {
-    "test": "node_modules/mocha/bin/mocha lib/*_tests.js --reporter spec",
+    "test": "mocha lib/*_tests.js --reporter spec",
     "coverage": "node coverage/*.js",
     "browserify": "watchify demo/app.js --outfile demo/index.js"
   },
@@ -26,6 +26,7 @@
   "homepage": "https://github.com/aaronshaf/koine-lexer",
   "devDependencies": {
     "aaronshaf-bible-data": "^2.2.1",
-    "mkdirp": "^0.5.1"
+    "mkdirp": "^0.5.1",
+    "mocha": "^6.1.4"
   }
 }
