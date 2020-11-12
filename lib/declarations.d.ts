@@ -5,3 +5,7 @@ export type Word = {
   principleParts?: any;
   indicatives?: any;
 };
+
+export type Liquids = "λ" | "ρ";
+export type Nasals = "μ" | "ν";
+export type GenericLiquids = Liquids | Nasals;
