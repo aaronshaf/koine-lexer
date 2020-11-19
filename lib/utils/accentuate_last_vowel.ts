@@ -1,4 +1,3 @@
-import unorm from "unorm";
 import addAcute from "./add_acute";
 import { isVowel } from "../utils";
 
@@ -11,7 +10,7 @@ function replaceCharacter(characters: string, index: number) {
 }
 
 function accentuateLastVowel(characters: string) {
-  characters = unorm.nfc(characters); // necessary?
+  characters = characters.normalize("NFC"); // necessary?
 
   var addedAcute = false;
   for (var x = characters.length - 1; x > -1; x--) {

@@ -1,5 +1,3 @@
-import unorm from "unorm";
-
 const consonants = [
   "β",
   "γ",
@@ -77,7 +75,7 @@ export function isLongSyllable(syllable: string) {
 }
 
 function isVowel(character: string) {
-  return vowels.indexOf(unorm.nfd(character)[0]) !== -1;
+  return vowels.indexOf(character.normalize("NFD")[0]) !== -1;
 }
 
 function beginsWithVowel(characters: string) {
@@ -144,7 +142,7 @@ function beginsWithDoubleConsonant(characters: string) {
 }
 
 function withoutAccent(character: string) {
-  return unorm.nfd(character)[0];
+  return character.normalize("NFD")[0];
 }
 
 function withoutAccents(characters: string) {

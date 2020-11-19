@@ -1,7 +1,5 @@
 import addCircumflex from "./utils/add_circumflex";
 
-import unorm from "unorm";
-
 type ReplacerFn = (_match: any, p1: string) => string;
 type Replacer = string | ReplacerFn;
 
@@ -96,7 +94,7 @@ const oldSubstitutions: [pattern: string, replacement: Replacer][] = [
   [
     "ε([ηω]|ει|ου|ευ|αι|υι|αυ|οι)",
     (_match: any, p1: string) => {
-      p1 = unorm.nfc(p1);
+      p1 = p1.normalize("NFC");
       const upToLastCharacter = p1.substr(0, p1.length - 1);
       const lastCharacter = addCircumflex(p1.substr(-1));
       return upToLastCharacter + lastCharacter;

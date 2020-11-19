@@ -1,5 +1,3 @@
-import unorm from "unorm";
-
 const circumflex = String.fromCharCode(834);
 
 function isCircumflex(character: string) {
@@ -7,5 +5,5 @@ function isCircumflex(character: string) {
 }
 
 export default function (characters: string) {
-  return unorm.nfd(characters).split("").some(isCircumflex);
+  return characters.normalize("NFD").split("").some(isCircumflex);
 }

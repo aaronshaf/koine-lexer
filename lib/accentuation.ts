@@ -1,4 +1,3 @@
-import unorm from "unorm";
 import { syllabify } from "./syllabify";
 import { Syllable } from "../phonology";
 import { isLongSyllable } from "./utils";
@@ -61,7 +60,7 @@ function accentuateVerb(word: string) {
     syllables = accentuateUltima(syllables);
   }
 
-  return unorm.nfc(syllables.join(""));
+  return syllables.join("").normalize("NFC");
 }
 
 export { accentuateVerb };

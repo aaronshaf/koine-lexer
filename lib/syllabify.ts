@@ -1,5 +1,4 @@
 import { Syllable, ConsonantCluster } from "../phonology";
-import unorm from "unorm";
 import {
   isSingleConsonant,
   beginsWithConsonantClusterPronouncedTogether,
@@ -18,7 +17,7 @@ import { uniq } from "lodash";
 function syllabify(word: string) {
   var syllables: Syllable[] = [];
   var currentSyllable = "";
-  var charactersRemaining = unorm.nfc(word);
+  var charactersRemaining = word.normalize("NFC");
   var cluster;
 
   function advanceSyllable() {
