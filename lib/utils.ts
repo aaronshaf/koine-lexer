@@ -85,7 +85,7 @@ function beginsWithVowel(characters: string) {
 }
 
 function isConsonant(character: string) {
-  return !exports.isVowel(character);
+  return !isVowel(character);
 }
 
 function isDiphthong(characters: string) {
