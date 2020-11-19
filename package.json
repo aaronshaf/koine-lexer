@@ -4,14 +4,7 @@
   "description": "Lexical analysis of New Testament Koine Greek",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "dependencies": {
-    "@types/lodash": "^4.14.165",
-    "@types/mocha": "^8.0.3",
-    "@types/node": "^14.14.7",
-    "glob": "~7.1.4",
-    "lodash": "~4.17.11",
-    "progress": "~2.0.3"
-  },
+  "dependencies": {},
   "scripts": {
     "test": "npm run prepublish && node_modules/.bin/mocha dist/lib/*_tests.js --reporter spec",
     "prepublish": "tsc",
@@ -31,6 +24,10 @@
   "devDependencies": {
     "aaronshaf-bible-data": "^2.2.1",
     "mkdirp": "^1.0.4",
-    "mocha": "^8.2.1"
+    "mocha": "^8.2.1",
+    "glob": "~7.1.4",
+    "progress": "~2.0.3",
+    "@types/mocha": "^8.0.3",
+    "@types/node": "^14.14.7"
   }
 }

@@ -12,7 +12,6 @@ import {
   beginsWithDiphthong,
   removePunctuation,
 } from "./utils";
-import { uniq } from "lodash";
 
 function syllabify(word: string) {
   var syllables: Syllable[] = [];
@@ -113,7 +112,7 @@ function extractConsonantClustersPronouncedTogether(text: string) {
       consonantClusters.push(consonantCluster.join(""));
     }
   });
-  return uniq(consonantClusters);
+  return [...new Set(consonantClusters)];
 }
 
 export { syllabify, extractConsonantClustersPronouncedTogether };
