@@ -13,7 +13,7 @@ import {
   removePunctuation,
 } from "./utils";
 
-function syllabify(word: string) {
+function syllabify(word: string = "") {
   var syllables: Syllable[] = [];
   var currentSyllable = "";
   var charactersRemaining = word.normalize("NFC");

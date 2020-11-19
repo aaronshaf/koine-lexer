@@ -74,7 +74,7 @@ export function isLongSyllable(syllable: string) {
   return isLongVowel(vowelsOnly);
 }
 
-function isVowel(character: string) {
+function isVowel(character: string = "") {
   return vowels.indexOf(character.normalize("NFD")[0]) !== -1;
 }
 
