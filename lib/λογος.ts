@@ -1,4 +1,4 @@
-import { Word } from "./declarations";
+import { Word } from "../data";
 import {
   stem,
   presentActiveIndicatives,

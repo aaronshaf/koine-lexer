@@ -1,4 +1,4 @@
-import { Syllable, ConsonantCluster } from "./declarations";
+import { Syllable, ConsonantCluster } from "../phonology";
 import unorm from "unorm";
 import {
   isSingleConsonant,

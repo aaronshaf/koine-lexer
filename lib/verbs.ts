@@ -1,4 +1,4 @@
-import { Word } from "./declarations";
+import { Word } from "../data";
 import { accentuateVerb } from "./accentuation";
 import amalgamate from "./amalgamate";
 

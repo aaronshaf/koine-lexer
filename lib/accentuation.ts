@@ -1,6 +1,6 @@
 import unorm from "unorm";
 import { syllabify } from "./syllabify";
-import { Syllable } from "./declarations";
+import { Syllable } from "../phonology";
 import { isLongSyllable } from "./utils";
 import removeAcutes from "./utils/remove_acutes";
 import removeGraves from "./utils/remove_graves";
