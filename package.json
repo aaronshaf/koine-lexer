@@ -1,6 +1,6 @@
 {
   "name": "koine-lexer",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Lexical analysis of New Testament Koine Greek",
   "cdn": "dist/index.umd.js",
   "main": "dist/index.js",
