@@ -1,5 +1,5 @@
 /*!
- * koine-lexer v3.0.3
+ * koine-lexer v3.0.4
  * (c) Aaron Shafovaloff
  * Released under the MIT License.
  */
