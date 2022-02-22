@@ -1,9 +1,9 @@
-import assert from "assert";
-let accentuateLastVowel = require("./accentuate_last_vowel");
+import assert from 'assert';
+const accentuateLastVowel = require('./accentuate_last_vowel');
 
-describe("utils/accentuateLastVowel", function () {
-  it("should add acute to last character", function () {
-    assert.strictEqual(accentuateLastVowel("χα"), "χά");
-    assert.strictEqual(accentuateLastVowel("ἐ"), "ἔ");
+describe('utils/accentuateLastVowel', function () {
+  it('should add acute to last character', function () {
+    assert.strictEqual(accentuateLastVowel('χα'), 'χά');
+    assert.strictEqual(accentuateLastVowel('ἐ'), 'ἔ');
   });
 });

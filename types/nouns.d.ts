@@ -1,4 +1,4 @@
-declare let firstDeclensionSuffixes: {
+declare const firstDeclensionSuffixes: {
     plural: {
         nominative: string;
         genitive: string;
@@ -6,7 +6,7 @@ declare let firstDeclensionSuffixes: {
         accusative: string;
     };
 };
-declare let secondDeclensionSingularSuffixes: {
+declare const secondDeclensionSingularSuffixes: {
     masculine: {
         nominative: string;
         genitive: string;
@@ -22,7 +22,7 @@ declare let secondDeclensionSingularSuffixes: {
         vocative: string;
     };
 };
-declare let secondDeclensionPluralSuffixes: {
+declare const secondDeclensionPluralSuffixes: {
     masculine: {
         nominative: string;
         genitive: string;

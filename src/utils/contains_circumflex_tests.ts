@@ -1,16 +1,16 @@
-import assert from "assert";
-import containsCircumflex from "./contains_circumflex";
+import assert from 'assert';
+import containsCircumflex from './contains_circumflex';
 
-describe("utils/containsCircumflex", function () {
-  it("should identify presence of circumflex", function () {
-    assert(containsCircumflex("πᾶς") === true, "πᾶς");
-    assert(containsCircumflex("ὑμῖν") === true, "ὑμῖν");
-    assert(containsCircumflex("τῶν") === true, "τῶν");
+describe('utils/containsCircumflex', function () {
+  it('should identify presence of circumflex', function () {
+    assert(containsCircumflex('πᾶς') === true, 'πᾶς');
+    assert(containsCircumflex('ὑμῖν') === true, 'ὑμῖν');
+    assert(containsCircumflex('τῶν') === true, 'τῶν');
   });
 
-  it("should identify absence of circumflex", function () {
-    assert(containsCircumflex("πατρός") === false, "πατρός");
-    assert(containsCircumflex("εἰπάτω") === false, "εἰπάτω");
-    assert(containsCircumflex("πόλεως") === false, "πόλεως");
+  it('should identify absence of circumflex', function () {
+    assert(containsCircumflex('πατρός') === false, 'πατρός');
+    assert(containsCircumflex('εἰπάτω') === false, 'εἰπάτω');
+    assert(containsCircumflex('πόλεως') === false, 'πόλεως');
   });
 });

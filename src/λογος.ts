@@ -1,10 +1,10 @@
-import type { Word } from "../data.d";
+import type { Word } from '../data.d';
 import {
   stem,
   presentActiveIndicatives,
   futureActiveIndicatives,
   futureMiddleIndicatives,
-} from "./verbs";
+} from './verbs';
 
 function word(input: string): Word {
   const word: Word = {
@@ -18,7 +18,7 @@ function word(input: string): Word {
     },
   };
   word.stem = stem(word);
-  if (typeof word.stem === "string") {
+  if (typeof word.stem === 'string') {
     word.indicatives = {
       present: {
         active: presentActiveIndicatives(word.stem),

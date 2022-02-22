@@ -1,4 +1,4 @@
-import type { Word } from "../data.d";
+import type { Word } from '../data.d';
 declare const primarySuffixes: {
     singular: {
         1: string;

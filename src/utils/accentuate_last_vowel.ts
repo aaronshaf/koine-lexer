@@ -1,5 +1,5 @@
-import addAcute from "./add_acute";
-import { isVowel } from "../utils";
+import addAcute from './add_acute';
+import { isVowel } from '../utils';
 
 function replaceCharacter(characters: string, index: number) {
   return (
@@ -10,9 +10,9 @@ function replaceCharacter(characters: string, index: number) {
 }
 
 function accentuateLastVowel(characters: string) {
-  characters = characters.normalize("NFC"); // necessary?
+  characters = characters.normalize('NFC'); // necessary?
 
-  let addedAcute = false;
+  const addedAcute = false;
   for (let x = characters.length - 1; x > -1; x--) {
     if (!addedAcute && isVowel(characters[x])) {
       characters = replaceCharacter(characters, x);

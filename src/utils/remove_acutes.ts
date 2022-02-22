@@ -1,11 +1,11 @@
 function isNotAcute(character: string) {
   return character.charCodeAt(0) !== 769;
 }
-export default function (characters: string = "") {
+export default function (characters = '') {
   return characters
-    .normalize("NFD")
-    .split("")
+    .normalize('NFD')
+    .split('')
     .filter(isNotAcute)
-    .join("")
-    .normalize("NFC");
+    .join('')
+    .normalize('NFC');
 }

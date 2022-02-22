@@ -13,8 +13,8 @@ import {
   removePunctuation,
 } from './utils';
 
-function syllabify(word: string = '') {
-  let syllables: Syllable[] = [];
+function syllabify(word = '') {
+  const syllables: Syllable[] = [];
   let currentSyllable = '';
   let charactersRemaining: string = word.normalize('NFC');
   let cluster;
@@ -98,12 +98,12 @@ function syllabify(word: string = '') {
 }
 
 function extractConsonantClustersPronouncedTogether(text: string) {
-  let consonantClusters: ConsonantCluster[] = [];
-  let words = removeNumbers(removePunctuation(text.toLowerCase())).split(' ');
+  const consonantClusters: ConsonantCluster[] = [];
+  const words = removeNumbers(removePunctuation(text.toLowerCase())).split(' ');
   // console.log(words);
   words.forEach(function (word: string) {
-    let characters = word.split('');
-    let consonantCluster = [];
+    const characters = word.split('');
+    const consonantCluster = [];
     while (characters[0] && isConsonant(characters[0])) {
       consonantCluster.push(characters.shift());
     }

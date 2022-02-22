@@ -1,29 +1,29 @@
 const pureEtaSingularEndings = {
-  'nominative': 'η',
-  'genitive': 'ης',
-  'dative': 'ῃ',
-  'accusative': 'ην'
+  nominative: 'η',
+  genitive: 'ης',
+  dative: 'ῃ',
+  accusative: 'ην',
 };
 
 const pureAlphaSingularEndings = {
-  'nominative': 'α',
-  'genitive': 'ας',
-  'dative': 'ᾳ',
-  'accusative': 'αν'
+  nominative: 'α',
+  genitive: 'ας',
+  dative: 'ᾳ',
+  accusative: 'αν',
 };
 
 const mixedEtaSingularEndings = {
-  'nominative': 'ης',
-  'genitive': 'ου',
-  'dative': 'ῃ',
-  'accusative': 'ην'
+  nominative: 'ης',
+  genitive: 'ου',
+  dative: 'ῃ',
+  accusative: 'ην',
 };
 
 const pluralEndings = {
-  'nominative': 'αι',
-  'genitive': 'ων',
-  'dative': 'αις',
-  'accusative': 'ας'
+  nominative: 'αι',
+  genitive: 'ων',
+  dative: 'αις',
+  accusative: 'ας',
 };
 
 /*

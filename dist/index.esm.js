@@ -1,5 +1,5 @@
 /*!
- * koine-lexer v3.0.2
+ * koine-lexer v3.0.3
  * (c) Aaron Shafovaloff
  * Released under the MIT License.
  */
@@ -166,13 +166,13 @@ function syllabify(word) {
 function amalgamate(characters) {
     // Labials
     // "π, β, φ + σ form the double consonant ψ" (Black)
-    characters = characters.replace(/[πβφ]σ/g, "ψ");
+    characters = characters.replace(/[πβφ]σ/g, 'ψ');
     // Velars
     // "κ, γ, χ + σ form the double consonant ξ." (Black)
-    characters = characters.replace(/[κγχ]σ/g, "ξ");
+    characters = characters.replace(/[κγχ]σ/g, 'ξ');
     // Dentals
     // "τ, δ, θ drop out before σ" (Black)
-    characters = characters.replace(/[τδθ]σ/g, "σ");
+    characters = characters.replace(/[τδθ]σ/g, 'σ');
     return characters;
 }
 

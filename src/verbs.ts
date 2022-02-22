@@ -1,93 +1,93 @@
-import type { Word } from "../data.d";
-import { accentuateVerb } from "./accentuation";
-import amalgamate from "./amalgamate";
+import type { Word } from '../data.d';
+import { accentuateVerb } from './accentuation';
+import amalgamate from './amalgamate';
 
 // Morpheme slots
 
 // Prefix
 
 // Past
-const pastTimeMorpheme = "ἐ";
+const pastTimeMorpheme = 'ἐ';
 
 // Perfective
-const perfectiveMorpheme = "λε";
+const perfectiveMorpheme = 'λε';
 
 // Lexical
 
 // Passive
-const passiveMorpheme = "θη";
+const passiveMorpheme = 'θη';
 
 // Future
-const futureMorpheme = "σ";
+const futureMorpheme = 'σ';
 
 // Aspect
 // Connecting vowel
 // const neturalMorpheme = "ο" or "ε"
-const aoristicAspectMorpheme = "σα";
-const perfectiveAspectMorpheme = "κα";
+const aoristicAspectMorpheme = 'σα';
+const perfectiveAspectMorpheme = 'κα';
 
 // Final (person-number)
 const primarySuffixes = {
   singular: {
-    1: "ω",
-    2: "εις",
-    3: "ει",
+    1: 'ω',
+    2: 'εις',
+    3: 'ει',
   },
   plural: {
-    1: "ομεν",
-    2: "ετε",
-    3: "ουσι",
+    1: 'ομεν',
+    2: 'ετε',
+    3: 'ουσι',
   },
 };
 const secondarySuffixes = {
   singular: {
-    1: "ν",
-    2: "ς",
-    3: "", // movable ν
+    1: 'ν',
+    2: 'ς',
+    3: '', // movable ν
   },
   plural: {
-    1: "μεν",
-    2: "τε",
-    3: "v", // or σαν
+    1: 'μεν',
+    2: 'τε',
+    3: 'v', // or σαν
   },
 };
 
 const presentSubjunctiveEndings = {
   singular: {
-    1: "ω",
-    2: "ῃς",
-    3: "ῃ",
+    1: 'ω',
+    2: 'ῃς',
+    3: 'ῃ',
   },
   plural: {
-    1: "ωμεν",
-    2: "ητε",
-    3: "ωσι",
+    1: 'ωμεν',
+    2: 'ητε',
+    3: 'ωσι',
   },
 };
 
 const middleAndPassiveEndings = {
   singular: {
-    1: "ομαι",
-    2: "ῃ",
-    3: "εται",
+    1: 'ομαι',
+    2: 'ῃ',
+    3: 'εται',
   },
   plural: {
-    1: "όμεθα",
-    2: "εσθε",
-    3: "ονται",
+    1: 'όμεθα',
+    2: 'εσθε',
+    3: 'ονται',
   },
 };
 
 const imperfectEndings = {
   singular: {
-    1: "ον",
-    2: "ες",
-    3: "ε",
+    1: 'ον',
+    2: 'ες',
+    3: 'ε',
   },
   plural: {
-    1: "ομεν",
-    2: "ετε",
-    3: "ον",
+    1: 'ομεν',
+    2: 'ετε',
+    3: 'ον',
   },
 };
 
@@ -195,24 +195,24 @@ function futureActiveIndicatives(stem: string) {
   return {
     singular: {
       1: accentuateVerb(
-        amalgamate(stem + futureMorpheme + primarySuffixes.singular[1])
+        amalgamate(stem + futureMorpheme + primarySuffixes.singular[1]),
       ),
       2: accentuateVerb(
-        amalgamate(stem + futureMorpheme + primarySuffixes.singular[2])
+        amalgamate(stem + futureMorpheme + primarySuffixes.singular[2]),
       ),
       3: accentuateVerb(
-        amalgamate(stem + futureMorpheme + primarySuffixes.singular[3])
+        amalgamate(stem + futureMorpheme + primarySuffixes.singular[3]),
       ),
     },
     plural: {
       1: accentuateVerb(
-        amalgamate(stem + futureMorpheme + primarySuffixes.plural[1])
+        amalgamate(stem + futureMorpheme + primarySuffixes.plural[1]),
       ),
       2: accentuateVerb(
-        amalgamate(stem + futureMorpheme + primarySuffixes.plural[2])
+        amalgamate(stem + futureMorpheme + primarySuffixes.plural[2]),
       ),
       3: accentuateVerb(
-        amalgamate(stem + futureMorpheme + primarySuffixes.plural[3])
+        amalgamate(stem + futureMorpheme + primarySuffixes.plural[3]),
       ),
     },
   };

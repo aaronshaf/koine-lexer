@@ -1,4 +1,4 @@
-declare let suffixes: {
+declare const suffixes: {
     singular: {
         masculine: {
             nominative: string;

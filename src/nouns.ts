@@ -1,41 +1,41 @@
-let firstDeclensionSuffixes = {
+const firstDeclensionSuffixes = {
   plural: {
-    nominative: "αι",
-    genitive: "ων",
-    dative: "αις",
-    accusative: "ας",
+    nominative: 'αι',
+    genitive: 'ων',
+    dative: 'αις',
+    accusative: 'ας',
   },
 };
 
-let secondDeclensionSingularSuffixes = {
+const secondDeclensionSingularSuffixes = {
   masculine: {
-    nominative: "ος",
-    genitive: "ου",
-    dative: "ῳ",
-    accusative: "ον",
-    vocative: "ε",
+    nominative: 'ος',
+    genitive: 'ου',
+    dative: 'ῳ',
+    accusative: 'ον',
+    vocative: 'ε',
   },
   neuter: {
-    nominative: "ον",
-    genitive: "ου",
-    dative: "ῳ",
-    accusative: "ον",
-    vocative: "ον",
+    nominative: 'ον',
+    genitive: 'ου',
+    dative: 'ῳ',
+    accusative: 'ον',
+    vocative: 'ον',
   },
 };
 
-let secondDeclensionPluralSuffixes = {
+const secondDeclensionPluralSuffixes = {
   masculine: {
-    nominative: "οι",
-    genitive: "ων",
-    dative: "οις",
-    accusative: "ους",
+    nominative: 'οι',
+    genitive: 'ων',
+    dative: 'οις',
+    accusative: 'ους',
   },
   neuter: {
-    nominative: "α",
-    genitive: "ων",
-    dative: "οις",
-    accusative: "α",
+    nominative: 'α',
+    genitive: 'ων',
+    dative: 'οις',
+    accusative: 'α',
   },
 };
 

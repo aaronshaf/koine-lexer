@@ -2,11 +2,11 @@ function isNotCircumflex(character: string) {
   return character.charCodeAt(0) !== 834;
 }
 
-export default function (characters: string = "") {
+export default function (characters = '') {
   return characters
-    .normalize("NFD")
-    .split("")
+    .normalize('NFD')
+    .split('')
     .filter(isNotCircumflex)
-    .join("")
-    .normalize("NFC");
+    .join('')
+    .normalize('NFC');
 }

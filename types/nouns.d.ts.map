@@ -1,1 +1,1 @@
-{"version":3,"file":"nouns.d.ts","sourceRoot":"","sources":["../src/nouns.ts"],"names":[],"mappings":"AAAA,QAAA,IAAI,uBAAuB;;;;;;;CAO1B,CAAC;AAEF,QAAA,IAAI,gCAAgC;;;;;;;;;;;;;;;CAenC,CAAC;AAEF,QAAA,IAAI,8BAA8B;;;;;;;;;;;;;CAajC,CAAC"}
+{"version":3,"file":"nouns.d.ts","sourceRoot":"","sources":["../src/nouns.ts"],"names":[],"mappings":"AAAA,QAAA,MAAM,uBAAuB;;;;;;;CAO5B,CAAC;AAEF,QAAA,MAAM,gCAAgC;;;;;;;;;;;;;;;CAerC,CAAC;AAEF,QAAA,MAAM,8BAA8B;;;;;;;;;;;;;CAanC,CAAC"}
