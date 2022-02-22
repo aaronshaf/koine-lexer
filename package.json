@@ -1,16 +1,9 @@
 {
   "name": "koine-lexer",
-  "version": "2.0.8",
+  "version": "3.0.0",
   "description": "Lexical analysis of New Testament Koine Greek",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "dependencies": {},
-  "scripts": {
-    "test": "npm run prepublish && node_modules/.bin/mocha dist/lib/*_tests.js --reporter spec",
-    "prepublish": "tsc",
-    "coverage": "node coverage/*.js",
-    "browserify": "watchify demo/app.js --outfile demo/index.js"
-  },
+  "scripts": {},
   "author": "Aaron Shafovaloff <aaronshaf@gmail.com>",
   "license": "MIT",
   "repository": {
@@ -21,13 +14,5 @@
     "url": "https://github.com/aaronshaf/koine-lexer/issues"
   },
   "homepage": "https://github.com/aaronshaf/koine-lexer",
-  "devDependencies": {
-    "aaronshaf-bible-data": "^2.2.1",
-    "mkdirp": "^1.0.4",
-    "mocha": "^8.2.1",
-    "glob": "~7.1.4",
-    "progress": "~2.0.3",
-    "@types/mocha": "^8.0.3",
-    "@types/node": "^14.14.7"
-  }
+  "devDependencies": {}
 }

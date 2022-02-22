@@ -1,4 +1,4 @@
-import { Word } from "../data";
+import type { Word } from "../data.d";
 import {
   stem,
   presentActiveIndicatives,
@@ -34,4 +34,4 @@ function word(input: string): Word {
   return word;
 }
 
-module.exports = word;
+export default word;
