@@ -1,0 +1,20 @@
+declare const consonants: string[];
+declare const consonantClustersPronouncedTogether: string[];
+declare function isLongVowel(character: string): boolean;
+export declare function isLongSyllable(syllable: string): boolean;
+declare function isVowel(character?: string): boolean;
+declare function beginsWithVowel(characters: string): boolean;
+declare function isConsonant(character: string): boolean;
+declare function beginsWithConsonant(characters: string): boolean;
+declare function beginsWithDiphthong(characters: string): boolean;
+declare function beginsWithConsonantClusterPronouncedTogether(characters: string): string | null;
+declare function endsWithShortDiphthong(characters: string): boolean;
+declare function isSingleConsonant(characters: string): boolean;
+declare function beginsWithSingleConsonantFollowedByVowel(characters: string): boolean;
+declare function beginsWithVowelFollowedByVowel(characters: string): boolean;
+declare function beginsWithDoubleConsonant(characters: string): boolean;
+declare function withoutAccents(characters: string): string;
+declare function removePunctuation(characters: string): string;
+declare function removeNumbers(characters: string): string;
+export { consonants, consonantClustersPronouncedTogether, isVowel, isLongVowel, isConsonant, withoutAccents, removeNumbers, removePunctuation, isSingleConsonant, beginsWithVowel, beginsWithDiphthong, beginsWithConsonant, beginsWithVowelFollowedByVowel, beginsWithSingleConsonantFollowedByVowel, beginsWithDoubleConsonant, beginsWithConsonantClusterPronouncedTogether, endsWithShortDiphthong, };
+//# sourceMappingURL=utils.d.ts.map
