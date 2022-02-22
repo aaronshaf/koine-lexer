@@ -1,6 +1,6 @@
 # koine-lexer
 
-[![Build Status](https://travis-ci.org/aaronshaf/koine-lexer.svg?branch=master)](https://travis-ci.org/aaronshaf/koine-lexer)
+<!-- [![Build Status](https://travis-ci.org/aaronshaf/koine-lexer.svg?branch=master)](https://travis-ci.org/aaronshaf/koine-lexer) -->
 [![License](https://badgen.net/github/license/aaronshaf/koine-lexer)](./LICENSE)
 [![Library minified size](https://badgen.net/bundlephobia/min/koine-lexer)](https://bundlephobia.com/result?p=koine-lexer)
 [![Library minified + gzipped size](https://badgen.net/bundlephobia/minzip/koine-lexer)](https://bundlephobia.com/result?p=koine-lexer)
