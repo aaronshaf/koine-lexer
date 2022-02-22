@@ -1,5 +1,5 @@
 import { syllabify } from './syllabify';
-import { Syllable } from '../phonology';
+import type { Syllable } from '../phonology';
 import { isLongSyllable } from './utils';
 import removeAcutes from './utils/remove_acutes';
 import removeGraves from './utils/remove_graves';
@@ -8,21 +8,21 @@ import containsCircumflex from './utils/contains_circumflex';
 
 function accentuateAntepenult(syllables: Syllable[]) {
   syllables[syllables.length - 3] = accentuateLastVowel(
-    syllables[syllables.length - 3],
+    syllables[syllables.length - 3] || '',
   );
   return syllables;
 }
 
 function accentuatePenult(syllables: Syllable[]) {
   syllables[syllables.length - 2] = accentuateLastVowel(
-    syllables[syllables.length - 2],
+    syllables[syllables.length - 2] || '',
   );
   return syllables;
 }
 
 function accentuateUltima(syllables: Syllable[]) {
   syllables[syllables.length - 1] = accentuateLastVowel(
-    syllables[syllables.length - 1],
+    syllables[syllables.length - 1] || '',
   );
   return syllables;
 }
@@ -31,8 +31,8 @@ function accentuateVerb(word: string) {
   word = removeAcutes(removeGraves(word));
   let syllables = syllabify(word);
   // let antepenult = syllables[syllables.length - 3];
-  const penult = syllables[syllables.length - 2];
-  const ultima = syllables[syllables.length - 1];
+  const penult = syllables[syllables.length - 2] || '';
+  const ultima = syllables[syllables.length - 1] || '';
 
   // if circumflex is on the ultima, then acute was absorbed from penultima
   if (containsCircumflex(ultima)) {
